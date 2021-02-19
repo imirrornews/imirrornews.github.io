@@ -4,8 +4,52 @@
         "name":"ပြည့်သူ့ပါတီ NLD"
     },
     {
+        "url":"https://burmese.dvb.no/",
+        "name":"DVB မြန်မာပိုင်း"
+    },
+    {
+        "url":"https://burma.irrawaddy.com/",
+        "name":"ဧရာဝတီ မြန်မာ"
+    },
+    {
+        "url":"https://english.dvb.no/",
+        "name":"DVB နိုင်ငံတကာသတင်း"
+    },
+    {
+        "url":"https://www.irrawaddy.com/",
+        "name":"ဧရာဝတီ နိုင်ငံတကာ"
+    },
+    {
         "url":"https://hellosayarwon.com/",
-        "name":"ကျန်းမာရေး ဆောင်ရန် ရှောင်ရန်များ"
+        "name":"ဟယ်လို ဆရာဝန်"
+    },
+    {
+        "url":"https://www.healthdigestmyanmar.com/",
+        "name":"Health Digest Myanmar"
+    },
+    {
+        "url":"https://netguidejournal.com/",
+        "name":"Netguide Journal"
+    },
+    {
+        "url":"https://internetjournal.media/",
+        "name":"အင်တာနက် ဂျာနယ်"
+    },
+    {
+        "url":"https://mobileguidemm.com/",
+        "name":"Mobile Guide Journal"
+    },
+    {
+        "url":"https://www.popularmyanmar.com/",
+        "name":"ပေါ်ပြူလာ ဂျာနယ်"
+    },
+    {
+        "url":"https://burmese.shannews.org/",
+        "name":"ရှမ်းသံတော်ဆင့် ဂျာနယ်"
+    },
+    {
+        "url":"https://automobile.com.mm/",
+        "name":"Auto Mobile Myanmar"
     },
     {
         "url":"https://taintikehtun.com/",
