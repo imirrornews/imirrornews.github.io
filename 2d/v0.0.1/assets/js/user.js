@@ -9,13 +9,12 @@ $(document).on('click', '.dayornight', function () {
 
 //For Choose 2D Number
     $(document).on('click', '.number', function () {
-      // console.log($('#morning').hasClass('btnactive'));
-      if($('#evening').hasClass('btnactive') == true){
-        $(this).addClass('chosennumberevening');
-       
+      console.log($('#morning').hasClass('btnactive'));
+      if($('#morning').hasClass('btnactive') == true){
+        $(this).addClass('chosennumbermorning');
       }
       else{
-      $(this).addClass('chosennumbermorning');
+      $(this).addClass('chosennumberevening');
       }
       $(this).addClass('chosennumber');
       $(this).removeClass('number');
@@ -49,47 +48,16 @@ $(document).on('click', '.dayornight', function () {
       for(var i=0;i<array2D.length;i++){
         j=i+1;
         $('#betlist tbody').append(
-                    "<tr>" +
-                      "<td >" + j+ "</td>" +
-                      "<td style='text-align:center;'>" + array2D[i]+ "</td>" +
-                      "<td style='text-align:center;'><input type='text' id=" + array2D[i] + " class='form-control betinput' style='border:none'/></td>" +                  
+                    "<tr  id='rrA'>" +
+                      "<td  id='A'>" + j+ "</td>" +
+                      "<td style='text-align:center;'  id='B'>" + array2D[i]+ "</td>" +
+                      "<td style='text-align:center;'  id='C'><input type='text' id=" + array2D[i] + " class='form-control' style='border:none'/></td>" +                  
                     "</tr>");
             }    
       $('#betmodal').modal('show'); 
     })
 //For Amount
-
-var prebet=0;
-//For Change Number
-$(document).on('keyup', '.betinput', function () {   
- $(this).val(EnglishNumber($(this).val()));
- })
- //For Change Number
-
-//For Change Current Balance
-$(document).on('focus', '.betinput', function () {   
-  prebet=$(this).val();
- // console.log(prebet);  
- })
-
-$(document).on('change', '.betinput', function () { 
- var currentbalance=$("#currentbalance").html().split(" "); 
- var bet =$(this).val(); 
- if(bet!==""){ 
-   if(prebet!==""){
-   $("#currentbalance").html((parseInt(currentbalance[0])+parseInt(prebet)-parseInt(bet)).toString() +" Ks");  
-   }
-   else{
-    $("#currentbalance").html((parseInt(currentbalance[0])-parseInt(bet)).toString() +" Ks");  
-   }
- }
- else{ 
-   $("#currentbalance").html((parseInt(currentbalance[0])+parseInt(prebet)).toString() +" Ks");
- }
-
-})
-//For Change Current Balance
-
+    
 //For Bet
     $(document).on('click', '#Bet2D', function () {
       var BetArray=[];

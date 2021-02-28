@@ -1,0 +1,27 @@
+.clock {   
+    float: right;
+    color: #17D4FE;
+    font-size: 20px;
+    font-family: Orbitron;
+    letter-spacing: 7px;
+}
+
+.mybtn{
+  margin: 20px;
+}
+
+.D2Number {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  cursor: pointer;
+}
+
+.D2Number>td {
+  border: 1px solid #dddddd;
+  text-align: center;
+  padding: 8px;
+}
+
+table>tr>td>.chosennumber{
+  background-color: brown;
+}

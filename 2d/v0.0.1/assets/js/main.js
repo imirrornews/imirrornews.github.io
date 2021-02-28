@@ -201,12 +201,9 @@ function showTime(){
   }
   
   if(h > 12){
-    $('#morning').prop('disabled', true);
-    //$('#evening').addClass('btnactive');
+    $('#morning').attr(disabled,'disabled');
+    $('#evening').addClass('btnactive');
       h = h - 12;
-      if(h>5){
-        $('#morning').prop('disabled', false);
-      }
       session = "PM";
   }
   
@@ -220,79 +217,4 @@ function showTime(){
   
   setTimeout(showTime, 1000);
   
-}
-
-
-function EnglishNumber(j) {
-  
-  var result = "";
-
-  for (i = 0; i < j.length; i++) {
-      switch (j[i]) {       
-          case "0":
-              result = result + "0";
-              break;
-          case "1":
-              result = result + "1";
-              break;
-          case "2":
-              result = result + "2";
-              break;
-          case "3":
-              result = result + "3";
-              break;
-          case "4":
-              result = result + "4";
-              break;
-          case "5":
-              result = result + "5";
-              break;
-          case "6":
-              result = result + "6";
-              break;
-          case "7":
-              result = result + "7";
-              break;
-          case "8":
-              result = result + "8";
-              break;
-          case "9":
-              result = result + "9";
-              break;
-          case "0":
-              result = result + "0";
-              break;
-          case "၀":
-              result = result + "0";
-              break;
-          case "၁":
-              result = result + "1";
-              break;
-          case "၂":
-              result = result + "2";
-              break;
-          case "၃":
-              result = result + "3";
-              break;
-          case "၄":
-              result = result + "4";
-              break;
-          case "၅":
-              result = result + "5";
-              break;
-          case "၆":
-              result = result + "6";
-              break;
-          case "၇":
-              result = result + "7";
-              break;
-          case "၈":
-              result = result + "8";
-              break;
-          case "၉":
-              result = result + "9";
-              break;         
-      }
-  }
-  return result;
 }
