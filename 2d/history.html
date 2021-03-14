@@ -37,34 +37,16 @@
 
       <div class="profile">
         <img src="assets/img/profile-img.jpg" alt="userimg" class="img-fluid rounded-circle">
-       <h1 class="text-light"><spam id="username">Alex Smith</spam></h1>      
-       <!--   <div class="social-links mt-3 text-center">
-          <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
-          <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
-          <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
-          <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
-          <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
-        </div>
-      </div>
-       <nav class="nav-menu">
-        <ul>
-          <li><a href="index.html"><i class="bx bx-home"></i> <span>Home</span></a></li>
-          <li><a href="#about"><i class="bx bx-user"></i> <span>About</span></a></li>
-          <li><a href="#resume"><i class="bx bx-file-blank"></i> <span>Resume</span></a></li>
-          <li><a href="#portfolio"><i class="bx bx-book-content"></i> Portfolio</a></li>
-          <li><a href="#services"><i class="bx bx-server"></i> Services</a></li>
-          <li><a href="#contact"><i class="bx bx-envelope"></i> Contact</a></li>
-
-        </ul> 
-      </nav>
--->
+       <h1 class="text-light"><spam id="username">UserName</spam></h1>      
+  
       <nav class="nav-menu">
         <ul>
           <li><a href="home.html"><i class="bx bx-home"></i> <span>Home</span></a></li>
-          <li><a href="history.html"><i class="bx bx-file-blank"></i> <span>History</span></a></li>
+          <li class="active"><a href="history.html"><i class="bx bx-file-blank"></i> <span>History</span></a></li>
           <!-- <li><a href="#portfolio"><i class="bx bx-book-content"></i> Portfolio</a></li>
-          <li><a href="#services"><i class="bx bx-server"></i> Services</a></li>-->
+          <li><a href="#services"><i class="bx bx-server"></i> Services</a></li>-->          
           <li><a href="#contact"><i class="bx bx-envelope"></i> Contact</a></li> 
+          <li id="signout"><a href="#"><i class="bx bx-exit"></i> Sign Out</a></li> 
 
         </ul> 
       </nav>
@@ -86,25 +68,47 @@
 
     <section class="inner-page">
       <div class="container">
-          <table id="D2Number" class="table table-bordered bordered table-striped align-content-center responsive D2Number">
+          <table id="historytbl" class="table table-bordered bordered table-striped align-content-center responsive historytbl">
             <thead>
                 <th>No</th>
                 <th>Date</th>
-                <th>Amount</th>
+                <th>Income</th>
+                <th>Outcome</th>
                 <th>Details</th>
             </thead>
             <tbody>
-              <tr>
-                <td>1</td>
-                <td>12-2-2021</td>
-                <td>1000</td>
-                <td><input type="button" value="Details"/></td>
-              </tr>
+            
             </tbody>
           </table>      
       </div>
-    
-     
+      <div class="modal fade" id="detail" aria-hidden="true" data-keyboard="false" data-backdrop="static" tabindex="-1"
+      role="dialog" aria-labelledby="myModalLabel">
+
+      <div class="modal-dialog" role="document">
+
+        <div class="modal-content">
+
+          <div class="modal-header alert-warning">
+            <h4 class="modal-title"><spam id="showdate"></spam> History</h4>
+            <spam id="currentbalance" style="float:right;font-size: 30px; color: green;"></spam>
+          </div>
+
+          <div class="modal-body">
+            <table id="detaillist" class="table table-bordered bordered table-striped align-content-center">
+              <thead class="bootstrap-table-sticky-header">
+                <tr>
+                  <th>No</th>
+                  <th>2D</th>
+                  <th>Amount</th>
+                  <th>Description</th>
+                </tr>
+              </thead>
+              <tbody class="content"></tbody>
+            </table>
+          </div>         
+        </div>
+      </div>
+    </div>
     </section>
 
   </main>
@@ -140,13 +144,9 @@
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
-  <script src="assets/js/myscript.js"></script>
+  <script src="assets/js/history.js"></script>
 
-  <script>
-     $(document).ready(function(){
-      showTime();
-     })     
-  </script>
+
 </body>
 
 </html>

@@ -187,40 +187,63 @@
 
 })(jQuery);
 
+//my js
+$(document).ready(function () {
+  showTime();     
+  sessionStorage.setItem("Userid","111");
+  sessionStorage.setItem("Username","bmh");
+  sessionStorage.setItem("Userbalance","5000");
+  
+if(sessionStorage.getItem("Userid")==null){
+  window.location.assign("index.html");	
+}
+else{
+  $("#username").html(sessionStorage.getItem("Username"));
+  $("#userbalance").html(sessionStorage.getItem("Userbalance")+" Ks");   
+}
+});
+
+$('#signout').click(function () {
+  sessionStorage.clear();
+  window.location.assign("index.html");
+})
 
 function showTime(){
   var date = new Date();
-   var h = date.getHours(); // 0 - 23
+  var h = date.getHours(); // 0 - 23
   var m = date.getMinutes(); // 0 - 59
   var s = date.getSeconds(); // 0 - 59
   var session = "AM";
-  
-  if(h == 0){
-    $('#morning').addClass('btnactive');
-      h = 12;
+ 
+  if(h == 0){   
+    h = 12;     
   }
-  
-  if(h > 12){
+  if (h<12){
+    // $('#morning').addClass('btnactive');
+ }
+  else{    
+    session = "PM";
     $('#morning').prop('disabled', true);
-    //$('#evening').addClass('btnactive');
+    // $('#evening').addClass('btnactive');
       h = h - 12;
       if(h>5){
+        // $('#evening').removeClass('btnactive');
         $('#morning').prop('disabled', false);
       }
-      session = "PM";
-  }
+     
+ }
   
   h = (h < 10) ? "0" + h : h;
   m = (m < 10) ? "0" + m : m;
   s = (s < 10) ? "0" + s : s;
-  
   var time = h + ":" + m + ":" + s + " " + session;
   document.getElementById("MyClockDisplay").innerText = time;
   document.getElementById("MyClockDisplay").textContent = time;
-  sessionStorage.setItem("ampm",session)
+ 
   setTimeout(showTime, 1000);
   
 }
+
 function ShowDate() {
   var d = new Date(),
       month = '' + (d.getMonth() + 1),
@@ -232,6 +255,20 @@ function ShowDate() {
 
   return [year, month, day].join('-');
 }
+
+function FormatDate() {
+  var d = new Date(),
+      month = '' + (d.getMonth() + 1),
+      day = '' + d.getDate(),
+      year = d.getFullYear();
+
+  if (month.length < 2) month = '0' + month;
+  if (day.length < 2) day = '0' + day;
+
+  return [day, month, year].join('-');
+}
+
+
 
 function EnglishNumber(j) {
   

@@ -13,9 +13,6 @@
   <link href="assets/img/favicon.png" rel="icon">
   <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
-
   <!-- Vendor CSS Files -->
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href="assets/vendor/icofont/icofont.min.css" rel="stylesheet">
@@ -25,12 +22,12 @@
   <link href="assets/vendor/aos/aos.css" rel="stylesheet">
 
   <!-- Template Main CSS File -->
-  <link href="assets/css/style.css" rel="stylesheet">  
+  <link href="assets/css/style.css" rel="stylesheet">
 </head>
 
 <body>
 
-  
+
   <!-- ======= Mobile nav toggle button ======= -->
   <button type="button" class="mobile-nav-toggle d-xl-none"><i class="icofont-navigation-menu"></i></button>
 
@@ -40,12 +37,14 @@
 
       <div class="profile">
         <img src="assets/img/profile-img.jpg" alt="userimg" class="img-fluid rounded-circle">
-       <h1 class="text-light"><spam id="username">Alex Smith</spam></h1>    
-         <div class="text-light mt-3 text-center">
-         <spam>Admin</spam>
+        <h1 class="text-light">
+          <spam id="username">Alex Smith</spam>
+        </h1>
+        <div class="text-light mt-3 text-center">
+          <spam>Admin</spam>
         </div>
-      </div>  
-       <!--   <div class="social-links mt-3 text-center">
+      </div>
+      <!--   <div class="social-links mt-3 text-center">
           <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
           <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
           <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
@@ -67,13 +66,13 @@
 -->
       <nav class="nav-menu">
         <ul>
-          <li><a href="home.html"><i class="bx bx-home"></i> <span>Home</span></a></li>
-          <li><a href="history.html"><i class="bx bx-file-blank"></i> <span>History</span></a></li>
-          <!-- <li><a href="#portfolio"><i class="bx bx-book-content"></i> Portfolio</a></li>
-          <li><a href="#services"><i class="bx bx-server"></i> Services</a></li>-->
-          <li><a href="#contact"><i class="bx bx-envelope"></i> Contact</a></li> 
-
-        </ul> 
+          <li class="active"><a href="dashboard.html"><i class="bx bx-chart"></i> <span>Dashboard</span></a></li>
+          <li><a href="#"><i class="bx bx-file-blank"></i> <span>Transaction</span></a></li>
+          <li><a href="userlist.html"><i class="bx bx-book"></i> <span>User List</span></a></li>
+          <li><a href="registration.html"><i class="bx bx-user-plus"></i> User Registration</a></li>
+          <!-- <li><a href="#services"><i class="bx bx-server"></i> Services</a></li> -->
+          <li id="signout"><a href="#"><i class="bx bx-exit"></i> Sign Out</a></li>
+        </ul>
       </nav>
       <!-- .nav-menu -->
       <button type="button" class="mobile-nav-toggle d-xl-none"><i class="icofont-navigation-menu"></i></button>
@@ -86,27 +85,32 @@
     <!-- ======= Breadcrumbs ======= -->
     <section class="breadcrumbs">
       <div class="container">
-        <div id="MyClockDisplay" class="d-flex justify-content-between align-items-center">          
+        <div id="MyClockDisplay" class="d-flex justify-content-between align-items-center">
         </div>
       </div>
     </section><!-- End Breadcrumbs -->
 
-    <section class="inner-page">
-      <div class="container">
-        
-          <table id="List" class="table table-bordered bordered table-striped align-content-center responsive List">
-            <thead>
-                <th>No</th>
-                <th>User</th>
-                <th>Amount</th>
-                <th>Details</th>
-            </thead>
-            <tbody></tbody>
-          </table>      
-      </div>
-    
-     
-    </section>
+
+    <div class="container">
+      <h1 class="">
+        <spam id="dateviewsell"></spam> Sold Out List
+      </h1>
+      <table id="shownum" class="table table-bordered bordered table-striped align-content-center">
+        <thead class="bootstrap-table-sticky-header">
+          <tr>
+            <th>2D</th>
+            <th>Amount</th>
+            <th></th>
+            <th>2D</th>
+            <th>Amount</th>
+          </tr>
+        </thead>
+        <tbody class="content">        
+        </tbody>
+      </table>
+    </div>
+
+
 
   </main>
   <!-- End #main -->
@@ -119,7 +123,7 @@
         &copy; Copyright by
       </div>
       <div class="credits">
-           <a href="https://mmsoftware100.com/">MMSoftware100.com</a>
+        <a href="https://mmsoftware100.com/">MMSoftware100.com</a>
       </div>
     </div>
   </footer><!-- End  Footer -->
@@ -141,12 +145,37 @@
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
-  <script src="assets/js/myscript.js"></script>
 
   <script>
-     $(document).ready(function(){
-      showTime();
-     })     
+    $(document).ready(function () {
+      $('#dateviewsell').html(FormatDate());
+      var snum=0;
+      var fnum=50;
+      for(var i=0;i<=50;i++){
+        if(i==0){
+          snum='00'
+        }
+        if(i<=9)
+        {
+          snum='0'+i;
+        }
+      
+      
+        
+      $('#shownum tbody').append(
+        "<tr>" +
+        "<td >" + snum + "</td>" +
+        "<td id='N"+snum+"''>" + '' + "</td>" +
+        "<td></td> " +
+        "<td>" + fnum + "</td>" +
+        "<td id='N"+fnum+"''>" + '' + "</td>" +
+        "</tr>"
+      ) 
+      snum=parseInt(snum)+1; 
+      
+      fnum=parseInt(fnum)+1;
+        } 
+    })     
   </script>
 </body>
 
