@@ -190,7 +190,7 @@
 
 function showTime(){
   var date = new Date();
-  var h = date.getHours(); // 0 - 23
+   var h = date.getHours(); // 0 - 23
   var m = date.getMinutes(); // 0 - 59
   var s = date.getSeconds(); // 0 - 59
   var session = "AM";
@@ -217,11 +217,21 @@ function showTime(){
   var time = h + ":" + m + ":" + s + " " + session;
   document.getElementById("MyClockDisplay").innerText = time;
   document.getElementById("MyClockDisplay").textContent = time;
-  
+  sessionStorage.setItem("ampm",session)
   setTimeout(showTime, 1000);
   
 }
+function ShowDate() {
+  var d = new Date(),
+      month = '' + (d.getMonth() + 1),
+      day = '' + d.getDate(),
+      year = d.getFullYear();
 
+  if (month.length < 2) month = '0' + month;
+  if (day.length < 2) day = '0' + day;
+
+  return [year, month, day].join('-');
+}
 
 function EnglishNumber(j) {
   
