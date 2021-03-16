@@ -4,28 +4,40 @@
         "name":"ပြည့်သူ့ပါတီ NLD"
     },
     {
-        "url":"https://www.touchheartsmyanmar.com/",
-        "name":"ဗေဒင်"
-    },
-    {
-        "url":"https://kwee.co/",
-        "name":"ပိုပြီး စတိုင်ကျဖို့"
-    },
-    {
         "url":"https://burmese.dvb.no/",
         "name":"DVB မြန်မာပိုင်း"
     },
     {
         "url":"https://burma.irrawaddy.com/",
-        "name":"ဧရာဝတီ မြန်မာ"
+        "name":"ဧရာဝတီ သတင်းဌာန"
+    },
+    {
+        "url":"https://www.irrawaddy.com/",
+        "name":"ဧရာဝတီ နိုင်ငံတကာ"
     },
     {
         "url":"https://english.dvb.no/",
         "name":"DVB နိုင်ငံတကာသတင်း"
     },
     {
-        "url":"https://www.irrawaddy.com/",
-        "name":"ဧရာဝတီ နိုင်ငံတကာ"
+        "url":"https://www.popularmyanmar.com/",
+        "name":"ပေါ်ပြူလာ ဂျာနယ်"
+    },
+    {
+        "url":"https://internetjournal.media/",
+        "name":"အင်တာနက် ဂျာနယ်"
+    },
+    {
+        "url":"https://www.touchheartsmyanmar.com/",
+        "name":"နေ့စဉ်၊ အပတ်စဉ်၊ လစဉ် ဗေဒင်ဟောစာတမ်းများ"
+    },
+    {
+        "url":"https://www.baydin.info/",
+        "name":"ဗေဒင် မျိုးစုံ"
+    },
+    {
+        "url":"https://kwee.co/",
+        "name":"ပိုပြီး စတိုင်ကျဖို့"
     },
     {
         "url":"https://hellosayarwon.com/",
@@ -33,27 +45,15 @@
     },
     {
         "url":"https://www.healthdigestmyanmar.com/",
-        "name":"Health Digest Myanmar"
-    },
-    {
-        "url":"https://www.baydin.info/",
-        "name":"ဗေဒင် ဟောစာတမ်းများ"
+        "name":"ကျန်းမာရေး မှတ်စုတို"
     },
     {
         "url":"https://netguidejournal.com/",
         "name":"Netguide Journal"
     },
     {
-        "url":"https://internetjournal.media/",
-        "name":"အင်တာနက် ဂျာနယ်"
-    },
-    {
         "url":"https://mobileguidemm.com/",
         "name":"Mobile Guide Journal"
-    },
-    {
-        "url":"https://www.popularmyanmar.com/",
-        "name":"ပေါ်ပြူလာ ဂျာနယ်"
     },
     {
         "url":"https://www.healthylifejournalmyanmar.com/",
