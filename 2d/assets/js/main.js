@@ -190,9 +190,9 @@
 //my js
 $(document).ready(function () {
   showTime();     
-  sessionStorage.setItem("Userid","111");
-  sessionStorage.setItem("Username","bmh");
-  sessionStorage.setItem("Userbalance","5000");
+  // sessionStorage.setItem("Userid","111");
+  // sessionStorage.setItem("Username","bmh");
+  // sessionStorage.setItem("Userbalance","5000");
   
 if(sessionStorage.getItem("Userid")==null){
   window.location.assign("index.html");	

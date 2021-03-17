@@ -85,7 +85,7 @@ $(document).on('click', '.number', function () {
   $(this).addClass('chosennumber');
   $(this).removeClass('number');
   array2D.push($(this).html());
-  console.log(array2D);
+  //console.log(array2D);
 })
 //For Choose 2D Number
 
@@ -96,7 +96,7 @@ $(document).on('click', '.chosennumber', function () {
   array2D = $.grep(array2D, function (value) {
     return value != removenumber;
   });
-  console.log(array2D);
+ // console.log(array2D);
 })
 //For UnChoose 2D Number 
 
@@ -104,7 +104,7 @@ $(document).on('click', '.chosennumber', function () {
 $(document).on('click', '#clear', function () {
   array2D = [];
   $(".chosennumber").removeClass('chosennumber').removeClass('chosennumbermorning').removeClass('chosennumberevening').addClass('number');
-  console.log(array2D);
+  //console.log(array2D);
 })
 //For Clear All 2D Number
 
@@ -116,9 +116,9 @@ $(document).on('click', '#bet', function () {
     j = i + 1;
     $('#betlist tbody').append(
       "<tr>" +
-      "<td >" + j + "</td>" +
-      "<td style='text-align:center;'>" + array2D[i] + "</td>" +
-      "<td style='text-align:center;'><input type='text' id=" + array2D[i] + " class='form-control betinput' style='border:none'/></td>" +
+      "<td style='text-align:right;vertical-align:middle;'>" + j + "</td>" +
+      "<td style='text-align:center;vertical-align:middle;'>" + array2D[i] + "</td>" +
+      "<td style='text-align:center;vertical-align:middle;'><input type='text' id=" + array2D[i] + " class='form-control betinput' style='border:none'/></td>" +
       "</tr>");
   }
   $('#betmodal').modal('show');
@@ -166,12 +166,12 @@ $(document).on('change', '.betinput', function () {
 //For Bet
 $(document).on('click', '#Bet2D', function () {
   var obj = {};
-  for (var i = 0; i < array2D.length; i++) {
+  for (var i = 0; i < array2D.length; i++) {    
     obj.user_id = sessionStorage.getItem("Userid"),
-      obj.num = array2D[i];
-    obj.bet = $('#betlist tbody').children().eq(i).children().eq(2).children(0).val();
+    obj.num = parseInt(array2D[i]);
+    obj.bet = parseInt($('#betlist tbody').children().eq(i).children().eq(2).children(0).val());
     obj.date = ShowDate(),
-      obj.ampm = (sessionStorage.getItem("ampm")).toLowerCase();
+    obj.ampm = (sessionStorage.getItem("ampm")).toLowerCase();  
     console.log(obj);
     var settings = {
       "url": "https://track-gps-backend.herokuapp.com/api/v1/bets",
@@ -182,9 +182,11 @@ $(document).on('click', '#Bet2D', function () {
     };
 
     $.ajax(settings).done(function (response) {
-      if (response.status == true) {
+      if (response.status == false) {
+        var balance= sessionStorage.getItem("Userbalance")-parseInt(obj.bet);
+        sessionStorage.setItem("Userbalance",balance);
         obj = {};
-        console.log("success");
+        console.log("success");       
       }
 
     });
