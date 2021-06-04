@@ -1,7 +1,12 @@
 [{
         "url": "https://imirror.news/",
         "name": "အင်တာနက် သတင်းစာ"
-    }, {
+    },
+    {
+        "url": "http://www.baydin.info/",
+        "name": "ဗေဒင်"
+    },
+    {
         "url": "https://nld-official.org/",
         "name": "ပြည့်သူ့ပါတီ NLD"
     },
