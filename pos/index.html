@@ -1,0 +1,905 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Capt Ar Kar Myo">
+        <title>POS</title>             
+        <style>
+            body {
+                background-color: wheat;
+            }
+           .headerDivMain {
+               width: 100%;
+               height: auto;
+               text-align: center;
+               color: white;
+               font-weight: bolder;
+               /* padding: 5px; */
+               background-color: green;
+               left: 0;top: 0;position:fixed;
+           }
+           .menuText {
+                font-size: 35px;
+           }
+           .menuText1 {
+                font-size: 25px;
+           }
+           .menuDiv1 {
+               width: 96%;
+               height: 100px;
+               /* background-color: white; */
+               margin-left: 2%;
+               margin-top: 35px;
+           }
+           .menuDiv1Inner1,.menuDiv1Inner2 {
+               width: 40%;
+               height: 100%;
+               /* background-color: tomato; */
+               margin-left: 6.5%;
+               float: left;
+           }
+           .menuBtn1,.menuBtn2,.menuBtn3,.menuBtn4,.menuBtn5,.menuBtn6,.menuBtn7 {
+               width: 100%;
+               height: 100%;
+               color: white;
+               cursor: pointer;
+               border-radius: 7px;
+               font-weight: bold;
+               font-size: 20px;
+               border: none;
+               box-shadow: 2px 2px 2px 2px gray;
+           }
+           .menuBtn1 {
+               background-color: lightskyblue;
+           }
+           .menuBtn2 {
+               background-color: darkcyan;
+           }
+           .menuBtn3 {
+               background-color: lightgreen;
+           }
+           .menuBtn4 {
+               background-color: lightpink;
+           }
+           .menuBtn5 {
+               background-color: red;
+           }
+           .menuBtn6 {
+               background-color: mediumpurple;
+           }
+           .menuBtn7 {
+               background-color:firebrick;
+           }
+           .boughtInsertDiv,.sellInsertDiv {
+               width: 100%;height: 530px;
+               margin-top: 65px;
+               /* background-color: darkslategray; */
+               background-color: whitesmoke;
+               margin-bottom: 100px;
+           }
+           .close {
+               color: red;font-weight: bold;font-size: 1.3em;
+               margin-left: 92%;right: 0%;
+               cursor: pointer;
+            }
+            .input {
+                border:0px;
+                border-bottom:2px solid lime;
+                width: 95%;height: 100%;
+                background: none;
+                /* color: white; */
+                color: black;
+                padding-left: 15px;
+            }
+            .input1 {
+                border:1px solid black;
+                width: 90%;height: 91%;
+                background: none;
+                /* color: white; */
+                padding-left: 15px;
+            }
+            .insertBoughtBtn,.insertSellBtn,.insertItemBtn {
+                width: 100%;height: 100%;
+                border: none;border-radius: 5px;
+                background-color: black;color: whitesmoke;
+                font-weight: bold;font-size: 1.1em;
+            }
+            button {
+                cursor: pointer;
+            }
+            button:hover {background-color: rebeccapurple;}
+            .salaryNote,.yearNote {
+                width: 100%;height: 600px;
+                margin-top: 65px;
+                /* background-color: darkkhaki; */
+            }
+            .salaryNoteInnerDiv {
+                width: 100%;height: 50%;
+            }
+            .searchMonthText {
+                font-weight: bold;
+                text-align: center;
+            }
+            .searchMonthBtn,.searchYearBtn {
+                width: 96%;height: 100%;
+                margin-left: 3%;
+                background:none;
+                color: green;font-weight: bold;
+            }
+            th {
+                font-weight: bold;
+            }
+            .button1 {
+                background-color: white;
+                /* color: black; */
+                font-weight: bold;
+                width: 98%;height: 100%;
+                border-radius: 7px;
+            }
+            .viewBought {
+                border: 2px solid #4CAF50; /* Green */
+                color:#4CAF50 ;
+            }
+            .viewSell {
+                border: 2px solid blue; /* red */
+                color: blue;
+            }
+            .monthListDiv,.yearListDiv {
+                width: 100%;height: 100%;
+                overflow-x: scroll;
+            }
+            .boughtListTable {
+                border-collapse: collapse;
+                font-size: 0.8em;
+                text-align: center;
+                margin-top: 15px;
+            }
+            .newItemDiv {
+                width: 100%;height: auto;
+                margin-top: 65px;
+            }
+            .footer {
+                position: fixed;
+                left: 0;
+                bottom: 0;
+                width: 100%;
+                background-color: rgba(0, 0, 0, 0.5);
+                color: white;
+                font-size: 0.8em;
+                text-align: center;
+            }
+            .aboutApk {
+                color: blue;
+                font-weight: bold;
+                cursor: pointer;
+            }
+            .aboutApk:hover {
+                color: red;
+            }
+            .aboutApkDiv {
+                width: 96%;height: auto;
+                margin-left: 2%;
+                margin-top: 65px;
+                margin-bottom: 100px;
+            }
+            .alertDiv {
+                width: 90%;height: auto;background-color: white;
+                text-align: center;
+                margin-left: 5%;
+                margin-top: 50%;
+                border-radius: 10px;
+                position: fixed;
+            }
+            .alertBtn {
+                color: white;
+                border: none;
+                background-color: limegreen;
+                width: 50px;height: 40px;
+                border-radius: 5px;
+            }
+
+        </style>
+        <script src="jquery.js"></script>
+    </head>
+    <body>
+        <div style="width: 100%;height: auto;">
+            <!--header-->
+            <div class="headerDivMain">
+                <span class="menuText">Mobile POS</span>
+                <span class="menuText1"></span>
+            </div>
+            <!--body-->
+            <div class="menuDiv1" style="margin-top:100px;">
+                <div class="menuDiv1Inner1">
+                    <button class="menuBtn1">
+                        ကုန်ဝယ်စာရင်း
+                    </button>
+                </div>
+                <div class="menuDiv1Inner2">
+                    <button class="menuBtn2">
+                        ကုန်ရောင်းစာရင်း
+                    </button>
+                </div>
+            </div>
+
+            <div class="menuDiv1">
+                <div class="menuDiv1Inner1">
+                    <button class="menuBtn3">
+                        လချုပ်စာရင်း
+                    </button>
+                </div>
+                <div class="menuDiv1Inner2">
+                    <button class="menuBtn4">
+                        နှစ်ချုပ်စာရင်း
+                    </button>
+                </div>
+            </div>
+
+            <div class="menuDiv1">
+                <div class="menuDiv1Inner1">
+                    <button class="menuBtn6">
+                        ပစ္စည်းအမည်အသစ်ထည့်
+                    </button>
+                </div>
+                <div class="menuDiv1Inner2">
+                    <div style="width: 100%;height: 50%;">
+                        <button class="menuBtn5" style="height: 90%;font-size: 12px;">ဝယ်စာရင်းဖျက်</button>
+                    </div>
+                    <div style="width: 100%;height: 50%;">
+                        <button class="menuBtn7" style="height: 90%;font-size: 12px;">ရောင်းစာရင်းဖျက်</button>
+                    </div>
+                </div>
+            </div>
+
+            <!--ကုန်ဝယ်စာရင်း insert Div-->
+            <div class="boughtInsertDiv" style="display:none;">
+                <span class="close">X</span>
+                <div style="width: 98%;height: 40px;margin-left: 1%;border: none;">
+                    <input class="input boughtCompany" type="text" placeholder="ကုမ္မဏီ/ဖုန်းနံပါတ်...">
+                </div>
+                <div style="width: 98%;height: 40px;margin-left: 1%;border: none;margin-top: 15px;">
+                    <!-- <input class="input boughtItem" type="text" placeholder="ပစ္စည်းအမည်..."> -->
+                    <select class="input boughtItem" id="boughtItem">
+                        <!-- <option style="color: white;">ပစ္စည်းအမည်ရွေးချယ်ပါ</option> -->
+                    </select>
+                </div>
+                <div style="width: 98%;height: 40px;margin-left: 1%;border: none;margin-top: 15px;">
+                    <input class="input boughtCount" type="number" placeholder="ပစ္စည်းအရေအတွက်...">
+                </div>
+                <div style="width: 98%;height: 40px;margin-left: 1%;border: none;margin-top: 15px;">
+                    <input class="input boughtPrice" type="number" placeholder="စျေးနှုန်း..." onkeyup="boughtCost()">
+                </div>
+                <div style="width: 98%;height: 40px;margin-left: 1%;border: none;margin-top: 15px;">
+                    <input class="input boughtCost" type="number" placeholder="ကုန်ကျငွေ...">
+                </div>
+                <div style="width: 98%;height: 40px;margin-left: 1%;border: none;margin-top: 15px;">
+                    <input class="input boughtDate" style="color: black;width:95%;" type="date">
+                </div>
+                <div style="width: 98%;height: 40px;margin-left: 1%;border: none;margin-top: 15px;">
+                    <textarea class="input boughtNote" rows="4" cols="50" placeholder="မှတ်ချက်ရေးရန်..."></textarea>
+                </div>
+                <div style="width: 50%;height: 60px;margin-left: 25%;margin-top: 40px;">
+                    <button class="insertBoughtBtn">
+                        သိမ်းဆည်းမည်
+                    </button>
+                </div>
+            </div>
+
+            <!--ကုန်ရောင်းစာရင်း insert Div-->
+            <div class="sellInsertDiv" style="display:none;">
+                <span class="close">X</span>
+                <div style="width: 98%;height: 40px;margin-left: 1%;border: none;">
+                    <input class="input sellCompany" type="text" placeholder="အမည်/ဖုန်းနံပါတ်...">
+                </div>
+                <div style="width: 98%;height: 40px;margin-left: 1%;border: none;margin-top: 15px;">
+                    <!-- <input class="input sellItem" type="text" placeholder="ပစ္စည်းအမည်..."> -->
+                    <select class="input sellItem" id="sellItem">
+                        <!-- <option style="color: white;">ပစ္စည်းအမည်ရွေးချယ်ပါ</option> -->
+                    </select>
+                </div>
+                <div style="width: 98%;height: 40px;margin-left: 1%;border: none;margin-top: 15px;">
+                    <input class="input sellCount" type="number" placeholder="ပစ္စည်းအရေအတွက်...">
+                </div>
+                <div style="width: 98%;height: 40px;margin-left: 1%;border: none;margin-top: 15px;">
+                    <input class="input sellPrice" type="number" placeholder="စျေးနှုန်း..." onkeyup="sellCost()">
+                </div>
+                <div style="width: 98%;height: 40px;margin-left: 1%;border: none;margin-top: 15px;">
+                    <input class="input sellCost" type="number" placeholder="ကုန်ကျငွေ...">
+                </div>
+                <div style="width: 98%;height: 40px;margin-left: 1%;border: none;margin-top: 15px;">
+                    <input class="input sellDate" style="color: black;width:95%;" type="date" placeholder="Date...">
+                </div>
+                <div style="width: 98%;height: 40px;margin-left: 1%;border: none;margin-top: 15px;">
+                    <textarea class="input sellNote" rows="4" cols="50" placeholder="မှတ်ချက်ရေးရန်..."></textarea>
+                </div>
+                <div style="width: 50%;height: 60px;margin-left: 25%;margin-top: 40px;">
+                    <button class="insertSellBtn">
+                        သိမ်းဆည်းမည်
+                    </button>
+                </div>
+            </div>
+
+            <!--show လချုပ်စာရင်း Div-->
+            <div class="salaryNote" style="display:none;">
+                <span class="close">X</span>
+                <div style="width: 98%;height: 200px;background-color: white;margin-left: 1%;">
+                    <div style="width: 100%;height: 50%;">
+                        <div class="salaryNoteInnerDiv">
+                            <center><span class="searchMonthText">ခုနှစ်နှင့်လရွေးချယ်ပါ</span></center>
+                        </div>
+                        <div class="salaryNoteInnerDiv">
+                            <div style="width: 50%;height: 100%;float: left;">
+                                <input type="month" class="input1 searchMonth">
+                            </div>
+                            <div style="width: 50%;height: 100%;float: left;">
+                                <button class="searchMonthBtn">ကြည့်မည်</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div style="width: 100%;height: 50%;">
+                        <center><table border="1" style="border-collapse: collapse;margin-top: 10px;font-size: 0.8em;">
+                            <thead><th>ဝယ်ယူထားသောငွေ</th><th>ရောင်းချရသောငွေ</th><th>ခြားနားချက်</th></thead>
+                            <tbody>
+                                <tr>
+                                    <td><span class="totalMonthBought">0</span></td>
+                                    <td><span class="totalMonthSell">0</span></td>
+                                    <td><span class="monthRemain">0</span></td>
+                                </tr>
+                            </tbody>
+                        </table></center>
+                    </div>
+                </div>
+                <div style="width: 98%;height: auto;background-color: white;margin-left: 1%;margin-top: 15px;">
+                    <div style="width: 96%;height: 50px;margin-left: 2%;">
+                        <div style="width: 50%;height: 100%;float: left;">
+                            <button class="button1 viewBought viewMonthList">ဝယ်ယူထားသောစာရင်း</button>
+                            <input type="hidden" value="1">
+                        </div>
+                        <div style="width: 50%;height: 100%;float: left;">
+                            <button class="button1 viewSell viewMonthList">ရောင်းချထားသောစာရင်း</button>
+                            <input type="hidden" value="2">
+                        </div>
+                    </div>
+                    <!--bought list-->
+                    <div class="monthListDiv">
+                    
+                    </div>
+                </div>
+            </div>
+
+            <!--show နှစ်ချုပ်စာရင်း Div-->
+            <div class="yearNote" style="display:none;">
+                <span class="close">X</span>
+                <div style="width: 98%;height: 200px;background-color: white;margin-left: 1%;">
+                    <div style="width: 100%;height: 50%;">
+                        <div class="salaryNoteInnerDiv">
+                            <center><span class="searchMonthText">ခုနှစ်ရွေးချယ်ပါ</span></center>
+                        </div>
+                        <div class="salaryNoteInnerDiv" style="width: 90%;margin-left: 5%;">
+                            <div style="width: 50%;height: 100%;float: left;">
+                                <input type="number" class="input1 searchYear" min="1900" max="2099" step="1" value="2021" />
+                            </div>
+                            <div style="width: 50%;height: 100%;float: left;">
+                                <button class="searchYearBtn">ကြည့်မည်</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div style="width: 100%;height: 50%;">
+                        <center><table border="1" style="border-collapse: collapse;margin-top: 10px;font-size: 0.8em;">
+                            <thead><th>ဝယ်ယူထားသောငွေ</th><th>ရောင်းချရသောငွေ</th><th>ခြားနားချက်</th></thead>
+                            <tbody>
+                                <tr>
+                                    <td><span class="totalYearBought">0</span></td>
+                                    <td><span class="totalYearSell">0</span></td>
+                                    <td><span class="yearRemain">0</span></td>
+                                </tr>
+                            </tbody>
+                        </table></center>
+                    </div>
+                </div>
+                <div style="width: 98%;height: auto;background-color: white;margin-left: 1%;margin-top: 15px;">
+                    <div style="width: 96%;height: 50px;margin-left: 2%;">
+                        <div style="width: 50%;height: 100%;float: left;">
+                            <button class="button1 viewBought viewYearList">ဝယ်ယူထားသောစာရင်း</button>
+                            <input type="hidden" value="1">
+                        </div>
+                        <div style="width: 50%;height: 100%;float: left;">
+                            <button class="button1 viewSell viewYearList">ရောင်းချထားသောစာရင်း</button>
+                            <input type="hidden" value="2">
+                        </div>
+                    </div>
+                    <!--bought list-->
+                    <div class="yearListDiv">
+                    
+                    </div>
+                </div>
+            </div>
+
+            <!--new Item Div-->
+            <div class="newItemDiv" style="display: none;">
+                <span class="close">X</span>
+                <div style="width: 80%;height: 55px;margin-left: 10%;margin-top: 30px;">
+                    <input type="text" style="color: black;" class="input newItemName" placeholder="ပစ္စည်းအမည်အသစ် ...">
+                </div>
+                <div style="width: 50%;height: 55px;margin-left: 25%;margin-top: 30px;border-radius: 7px;">
+                    <button class="insertItemBtn">သိမ်းမည်</button>
+                </div>
+            </div>
+
+            <!--About Apk-->
+            <div class="aboutApkDiv" style="display:none ;">
+                <span class="close">X</span>
+                <p>ယခု  application ကတော့ ဈေးရောင်းတဲ့သူတွေအတွက်( အိမ်ဆိုင်၊ online shop၊ ဘာပဲရောင်းရောင်း) အသုံးတည့်နိုင်တဲ့ Mobile POS သို့မဟုတ် Mini POS ပဲဖြစ်ပါတယ်။</p>
+
+                <p>ကိုယ်ဝယ်ထားတဲ့စာရင်း၊ ကိုယ်ရောင်းထားတဲ့စာရင်းတွေကို အလွယ်တကူသိမ်းထားနိုင်ပြီးတော့ လချုပ်၊ နှစ်ချုပ်စာရင်းတွေကိုပါ ပြန်ကြည့်နိုင်အောင်လို့ ရိုးရှင်းလွယ်ကူစွာ ရေးသားထားပါတယ်။</p>
+
+                <p>နောက်ဗားရှင်းအသစ်မှာဆိုရင်တော့ စတိုးလက်ကျန်စာရင်းကြည့်ခြင်း၊ ရှာဖွေခြင်း စတဲ့လုပ်ဆောင်ချက်အသစ်တွေကို ထပ်မံထည့်ပေးသွားမှာဖြစ်ပြီးတော့ လိုအပ်ချက်(သို့)ထည့်ချင်တဲ့အချက်များရှိရင်လည်း ကျွန်တော်တို့ရဲ့ facebook page(<span style="color: green;">mmsoftware100</span>) မှာ လာရောက်ပြောကြားနိုင်ပါတယ်။</p>
+            </div>
+
+            <!--Alert Div-->
+            <div class="alertDiv" style="display:none ;">
+                <span class="alertText"></span><br><br>
+                <button class="alertBtn">OK</button>
+            </div>
+            
+
+        </div>
+
+        <div class="footer">
+            <p>Developed by mmsoftware100@RKM</p>
+            <p>Version 1.0/<span class="aboutApk hover">About Apk</span></p>
+        </div>
+        
+     <script>
+        //to show total cost
+        function boughtCost() { 
+            var count=$(".boughtCount").val();
+            var price=$(".boughtPrice").val();
+            $(".boughtCost").val(count * price);
+        }
+        function sellCost() { 
+            var count=$(".sellCount").val();
+            var price=$(".sellPrice").val();
+            $(".sellCost").val(count * price);
+        }
+        $(document).ready(function() {
+            //$(".menuDiv1").hide();
+            //alert("jquery ok");                      
+            //localStorage.removeItem("boughtData");
+            //localStorage.removeItem("sellData");
+
+            var orgBoughtData=JSON.parse(localStorage.getItem("boughtData"));console.log(orgBoughtData);
+            var newItemData=JSON.parse(localStorage.getItem("newItemData"));console.log(newItemData);
+
+            $(".menuBtn1").click(function() {
+                $(".boughtInsertDiv").show();
+                $(".menuDiv1").hide();
+                //for title text show
+                $(".menuText1").text("ကုန်ဝယ်စာရင်းထည့်သွင်းခြင်း");
+                $(".menuText").text('');
+                // for select item name
+                $("#boughtItem").empty();
+                var newItemStr="<option>ပစ္စည်းအမည်ရွေးချယ်ပါ</option>";
+                $("#boughtItem").append(newItemStr);
+                var newItem=JSON.parse(localStorage.getItem("newItemData"));
+                for(i=0;i < newItem.length;i++)
+                {
+                    newItemStr += "<option style='color: black;' value="+newItem[i]['newItemName']+">"+newItem[i]['newItemName']+"</option>";
+                }
+                $("#boughtItem").append(newItemStr);
+            })
+            //close bought div,sell div
+            $(".close").click(function() {
+                $(".boughtInsertDiv").hide();
+                $(".sellInsertDiv").hide();
+                $(".salaryNote").hide();
+                $(".newItemDiv").hide();
+                $(".menuDiv1").show();
+                $(".yearNote").hide();
+                $(".aboutApkDiv").hide();
+                $(".menuText1").text('');
+                $(".menuText").text("Mobile POS");
+            })
+            // close alert div
+            $(".alertBtn").click(function(){
+                $(".alertDiv").hide();
+                $(".menuDiv1").show();
+                $(".menuText1").text('');
+                $(".menuText").text("Mobile POS");
+            })
+            //show sell div
+            $(".menuBtn2").click(function() {
+                $(".sellInsertDiv").show();
+                $(".menuDiv1").hide();
+                //for title text show
+                $(".menuText1").text("ကုန်ရောင်းစာရင်းထည့်သွင်းခြင်း");
+                $(".menuText").text('');
+                // for select item name
+                $("#sellItem").empty();
+                var newItemStr="<option>ပစ္စည်းအမည်ရွေးချယ်ပါ</option>";
+                $("#sellItem").append(newItemStr);
+                var newItem=JSON.parse(localStorage.getItem("newItemData"));
+                for(i=0;i < newItem.length;i++)
+                {
+                    newItemStr += "<option style='color: black;' value="+newItem[i]['newItemName']+">"+newItem[i]['newItemName']+"</option>";
+                }
+                $("#sellItem").append(newItemStr);
+            })
+            // show လချုပ်စာရင်း
+            $(".menuBtn3").click(function (){ //alert("menuBtn3 ok");
+                $(".salaryNote").show();
+                $(".menuDiv1").hide();
+                //for title text show
+                $(".menuText1").text("လချုပ်စာရင်း");//"လချုပ်စာရင်း"
+                $(".menuText").text('');
+            })
+            // show နှစ်ချုပ်စာရင်း
+            $(".menuBtn4").click(function (){ //alert("menuBtn4 ok");
+                $(".yearNote").show();
+                $(".menuDiv1").hide();
+                //for title text show
+                $(".menuText1").text("နှစ်ချုပ်စာရင်း");//"လချုပ်စာရင်း"
+                $(".menuText").text('');
+            })
+            // show new item div
+            $(".menuBtn6").click(function(){ //alert("menuBtn6 ok");
+                $(".newItemDiv").show();
+                $(".menuDiv1").hide();
+                //for title text show
+                $(".menuText1").text("ပစ္စည်းအမည်အသစ်ထည့်");
+                $(".menuText").text('');
+            })
+            // show about apk div
+            $(".aboutApk").click(function(){ //alert("btn ok");
+                $(".aboutApkDiv").show();
+                $(".menuDiv1").hide();
+                //for title text show
+                $(".menuText").text("About Apk");
+            })
+            // delete bought data
+            $(".menuBtn5").click(function(){
+                var check = confirm("ဖျက်မှာသေချာပြီလား?");
+                if(check==true)
+                {
+                    localStorage.removeItem("boughtData");
+                    //alert("ဖျက်ပြီးပါပြီ");
+                    $(".alertText").text("ဖျက်ပြီးပါပြီ");
+                    $(".alertDiv").show();
+                    $(".menuDiv1").hide();
+                }
+            })
+            // delete sell data
+            $(".menuBtn7").click(function(){
+                var check = confirm("ဖျက်မှာသေချာပြီလား?");
+                if(check==true)
+                {
+                    localStorage.removeItem("sellData");
+                    //alert("ဖျက်ပြီးပါပြီ");
+                    $(".alertText").text("ဖျက်ပြီးပါပြီ");
+                    $(".alertDiv").show();
+                    $(".menuDiv1").hide();
+                }
+            })
+            // insert bought data
+            $(".insertBoughtBtn").click(function () {
+                var company = $(".boughtCompany").val();
+                //var item = $(".boughtItem").text();
+                var item = $(".boughtItem option:selected").text();
+                var count = $(".boughtCount").val();
+                var price = $(".boughtPrice").val();
+                var cost = $(".boughtCost").val();
+                var date = $(".boughtDate").val();
+                var note = $(".boughtNote").val();
+                //test
+                var yy = new Date(date);
+                var onlyMonths = yy.getMonth();//alert(onlyMonth);
+                var onlyMonth = parseInt(onlyMonths) + 1;
+                var onlyYear = yy.getFullYear();//alert(onlyYear);
+                
+                if(company==null || company=="",item==null || item=="",count==null || count=="",price==null || price=="",cost==null || cost=="",date==null || date=="",note==null || note=="")
+                {
+                    //alert("Please Fill All Required Field");
+                    $(".alertText").text("Please Fill All Required Field !");
+                    $(".alertDiv").show();
+                    $(".boughtInsertDiv").hide();
+                }
+                else
+                {
+                    var newBoughtData = new Array();
+                    newBoughtData = [{company,item,count,price,cost,date,note,onlyMonth,onlyYear}];
+                    var orgBoughtData=JSON.parse(localStorage.getItem("boughtData"));
+                    if(orgBoughtData===null)
+                    {
+                        localStorage.setItem("boughtData",JSON.stringify(newBoughtData));
+                    }
+                    else
+                    {
+                        var all=orgBoughtData.concat(newBoughtData);
+                        localStorage.setItem("boughtData",JSON.stringify(all));
+                    }
+                    //alert("Success");
+                    $(".alertText").text("Success !");
+                    $(".alertDiv").show();
+                    $(".boughtInsertDiv").hide();
+
+                    $(".boughtCompany").val('');
+                    $(".boughtItem").val('');
+                    $(".boughtCount").val('');
+                    $(".boughtPrice").val('');
+                    $(".boughtCost").val('');
+                    $(".boughtDate").val('');
+                    $(".boughtNote").val('');
+                }  //alert(item);
+            })
+
+            // insert Sell data
+            $(".insertSellBtn").click(function () {
+                var company = $(".sellCompany").val();
+                // var item = $(".sellItem").val();
+                var item = $(".sellItem option:selected").text();
+                var count = $(".sellCount").val();
+                var price = $(".sellPrice").val();
+                var cost = $(".sellCost").val();
+                var date = $(".sellDate").val();
+                var note = $(".sellNote").val();
+                //test
+                var yy = new Date(date);
+                var onlyMonths = yy.getMonth();//alert(onlyMonth);
+                var onlyMonth = parseInt(onlyMonths) + 1;
+                var onlyYear = yy.getFullYear();//alert(onlyYear);
+                
+                if(company==null || company=="",item==null || item=="",count==null || count=="",price==null || price=="",cost==null || cost=="",date==null || date=="",note==null || note=="")
+                {
+                    //alert("Please Fill All Required Field");
+                    $(".alertText").text("Please Fill All Required Field !");
+                    $(".alertDiv").show();
+                    $(".sellInsertDiv").hide();
+                }
+                else
+                {
+                    var newSellData = new Array();
+                    newSellData = [{company,item,count,price,cost,date,note,onlyMonth,onlyYear}];
+                    var orgSellData=JSON.parse(localStorage.getItem("sellData"));
+                    if(orgSellData===null)
+                    {
+                        localStorage.setItem("sellData",JSON.stringify(newSellData));
+                    }
+                    else
+                    {
+                        var all=orgSellData.concat(newSellData);
+                        localStorage.setItem("sellData",JSON.stringify(all));
+                    }
+                    //alert("Success");
+                    $(".alertText").text("Success !");
+                    $(".alertDiv").show();
+                    $(".sellInsertDiv").hide();
+
+                    $(".sellCompany").val('');
+                    $(".sellItem").val('');
+                    $(".sellCount").val('');
+                    $(".sellPrice").val('');
+                    $(".sellCost").val('');
+                    $(".sellDate").val('');
+                    $(".sellNote").val('');
+                }
+            })
+            // search month note
+            $(".searchMonthBtn").click(function(){ //alert("searchMonthBtn ok");
+                var searchMonth=$(".searchMonth").val(); //alert(searchMonth);
+                var newDate = new Date(searchMonth);
+                var months = newDate.getMonth();
+                var month = months + 1;
+                var year = newDate.getFullYear();
+                var orgBought=JSON.parse(localStorage.getItem("boughtData"));
+                var orgSell=JSON.parse(localStorage.getItem("sellData"));
+                var bought = 0, sell = 0;
+                var boughtStr = '',sellStr ='';
+                if(orgBought!=null)
+                {
+                    for (i=0;i < orgBought.length;i++)
+                    {
+                        //alert(orgBought[i]['cost']);
+                        if(orgBought[i]['onlyMonth']==month && orgBought[i]['onlyYear']==year)
+                        {
+                            //alert("same");
+                            bought += parseInt(orgBought[i]['cost']);
+                        }
+                    }
+                }
+                if(orgSell!=null)
+                {
+                    for (i=0;i < orgSell.length;i++)
+                    {
+                        //alert(orgSell[i]['cost']);
+                        if(orgSell[i]['onlyMonth']==month && orgSell[i]['onlyYear']==year)
+                        {
+                            //alert("same");
+                            sell += parseInt(orgSell[i]['cost']);
+                        }
+                    }
+                }
+                
+                $(".totalMonthBought").text(bought +" Kyats");
+                $(".totalMonthSell").text(sell +" Kyats");
+                $(".monthRemain").text(sell - bought +" Kyats");
+                if(sell - bought > 0)//green
+                {
+                    $(".monthRemain").css("color","green");
+                }
+                else if(sell - bought < 0)//red
+                {
+                    $(".monthRemain").css("color","red");
+                }
+                // to view bought list
+                $(".viewMonthList").click(function(){ //alert("ok btn");
+                    var checkBtn = $(this).next().val(); //alert(checkBtn);
+                    viewStr='';
+                    viewStr+="<center><table class='boughtListTable' border='1'><tr><th>NO</th><th>Date</th><th>Name</th><th>Item</th><th>Count</th><th>Price</th><th>Cost</th><th>Note</th></tr>";
+                    var searchMonths=$(".searchMonth").val(); //alert(searchMonth);
+                    var newDates = new Date(searchMonths);
+                    var monthss = newDates.getMonth();
+                    var months = monthss + 1;
+                    var years = newDates.getFullYear();
+                    var no=1;
+                    if(checkBtn==1)
+                    {
+                        if(orgBought!=null)
+                        {
+                            for (i=0;i < orgBought.length;i++)
+                            {
+                                //alert(orgBought[i]['cost']);
+                                if(orgBought[i]['onlyMonth']==months && orgBought[i]['onlyYear']==years)
+                                {
+                                    //bought += parseInt(orgBought[i]['cost']);
+                                    viewStr += "<tr><td>"+ no +"</td><td>"+orgBought[i]['date']+"</td><td>"+orgBought[i]['company']+"</td><td>"+orgBought[i]['item']+"</td><td>"+orgBought[i]['count']+"</td><td>"+orgBought[i]['price']+"</td><td>"+orgBought[i]['cost']+"</td><td>"+orgBought[i]['note']+"</td>";
+                                    no++;
+                                }
+                            }
+                        } 
+                    }
+                    else if(checkBtn==2) 
+                    {
+                        if(orgSell!=null)
+                        {
+                            for (i=0;i < orgSell.length;i++)
+                            {
+                                //alert(orgSell[i]['cost']);
+                                if(orgSell[i]['onlyMonth']==months && orgSell[i]['onlyYear']==years)
+                                {
+                                    //bought += parseInt(orgSell[i]['cost']);
+                                    viewStr += "<tr><td>"+ no +"</td><td>"+orgSell[i]['date']+"</td><td>"+orgSell[i]['company']+"</td><td>"+orgSell[i]['item']+"</td><td>"+orgSell[i]['count']+"</td><td>"+orgSell[i]['price']+"</td><td>"+orgSell[i]['cost']+"</td><td>"+orgSell[i]['note']+"</td>";
+                                    no++;
+                                }
+                            }
+                        }
+                    }
+                    
+                    viewStr += "</tr></table></center>";
+                    $(".monthListDiv").html(viewStr);
+                })
+            })
+
+            // search Year note
+            $(".searchYearBtn").click(function(){ //alert("searchYearBtn ok");
+                var searchYear=$(".searchYear").val(); //alert(searchYear);
+                var orgBought=JSON.parse(localStorage.getItem("boughtData"));
+                var orgSell=JSON.parse(localStorage.getItem("sellData"));
+                var bought = 0, sell = 0;
+                var boughtStr = '',sellStr ='';
+                if(orgBought!=null)
+                {
+                    for (i=0;i < orgBought.length;i++)
+                    {
+                        //alert(orgBought[i]['cost']);
+                        if(orgBought[i]['onlyYear']==searchYear)
+                        {
+                            //alert("same");
+                            bought += parseInt(orgBought[i]['cost']);
+                        }
+                    }
+                }
+                if(orgSell!=null)
+                {
+                    for (i=0;i < orgSell.length;i++)
+                    {
+                        //alert(orgSell[i]['cost']);
+                        if(orgSell[i]['onlyYear']==searchYear)
+                        {
+                            //alert("same");
+                            sell += parseInt(orgSell[i]['cost']);
+                        }
+                    }
+                }
+                $(".totalYearBought").text(bought +" Kyats");
+                $(".totalYearSell").text(sell +" Kyats");
+                $(".yearRemain").text(sell - bought +" Kyats");
+                if(sell - bought > 0)//green
+                {
+                    $(".yearRemain").css("color","green");
+                }
+                else if(sell - bought < 0)//red
+                {
+                    $(".yearRemain").css("color","red");
+                }
+                // to view bought list
+                $(".viewYearList").click(function(){ //alert("ok btn");
+                    var checkBtn = $(this).next().val(); //alert(checkBtn);
+                    viewStr='';
+                    viewStr+="<center><table class='boughtListTable' border='1'><tr><th>NO</th><th>Date</th><th>Name</th><th>Item</th><th>Count</th><th>Price</th><th>Cost</th><th>Note</th></tr>";
+                    var searchYear=$(".searchYear").val();
+                    var no=1;
+                    if(checkBtn==1)
+                    {
+                        if(orgBought!=null)
+                        {
+                            for (i=0;i < orgBought.length;i++)
+                            {
+                                //alert(orgBought[i]['cost']);
+                                if(orgBought[i]['onlyYear']==searchYear)
+                                {
+                                    //bought += parseInt(orgBought[i]['cost']);
+                                    viewStr += "<tr><td>"+ no +"</td><td>"+orgBought[i]['date']+"</td><td>"+orgBought[i]['company']+"</td><td>"+orgBought[i]['item']+"</td><td>"+orgBought[i]['count']+"</td><td>"+orgBought[i]['price']+"</td><td>"+orgBought[i]['cost']+"</td><td>"+orgBought[i]['note']+"</td>";
+                                    no++;
+                                }
+                            }
+                        }
+                    }
+                    else if(checkBtn==2) 
+                    {
+                        if(orgSell!=null)
+                        {
+                            for (i=0;i < orgSell.length;i++)
+                            {
+                                //alert(orgSell[i]['cost']);
+                                if(orgSell[i]['onlyYear']==searchYear)
+                                {
+                                    //bought += parseInt(orgSell[i]['cost']);
+                                    viewStr += "<tr><td>"+ no +"</td><td>"+orgSell[i]['date']+"</td><td>"+orgSell[i]['company']+"</td><td>"+orgSell[i]['item']+"</td><td>"+orgSell[i]['count']+"</td><td>"+orgSell[i]['price']+"</td><td>"+orgSell[i]['cost']+"</td><td>"+orgSell[i]['note']+"</td>";
+                                    no++;
+                                }
+                            }
+                        }
+                    }
+                    
+                    viewStr += "</tr></table></center>";
+                    $(".yearListDiv").html(viewStr);
+                })
+            })
+
+            // insert New Item Name
+            $(".insertItemBtn").click(function(){ //alert("insertItemBtn ok");
+                var newItemName = $(".newItemName").val();//alert(newItemName);
+                if(newItemName==null || newItemName=='')
+                {
+                    //alert("Please fill the input!");
+                    $(".alertText").text("Please fill the input !");
+                    $(".alertDiv").show();
+                    $(".newItemDiv").hide();
+                }
+                else
+                {
+                    var newItem = new Array();
+                    newItem = [{newItemName}];
+                    var orgItem=JSON.parse(localStorage.getItem("newItemData"));
+                    if(orgItem===null)
+                    {
+                        localStorage.setItem("newItemData",JSON.stringify(newItem));
+                    }
+                    else
+                    {
+                        var all=orgItem.concat(newItem);
+                        localStorage.setItem("newItemData",JSON.stringify(all));
+                    }
+                    //alert("Success");
+                    $(".alertText").text("Success !");
+                    $(".alertDiv").show();
+                    $(".newItemDiv").hide();
+                    $(".newItemName").val('');
+                }
+            })
+            
+         })
+     </script>  
+    </body>
+</html>
