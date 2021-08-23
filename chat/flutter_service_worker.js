@@ -6,14 +6,14 @@ const RESOURCES = {
   "assets/AssetManifest.json": "2efbb41d7877d10aac9d091f58ccd7b9",
 "assets/FontManifest.json": "dc3d03800ccca4601324923c0b1d6d57",
 "assets/fonts/MaterialIcons-Regular.otf": "1288c9e28052e028aba623321f7826ac",
-"assets/NOTICES": "f77750df3be88a203d4dd9af7a31260e",
+"assets/NOTICES": "4b951458dafa3ed1f4aa3ed63c8bfb92",
 "assets/packages/cupertino_icons/assets/CupertinoIcons.ttf": "6d342eb68f170c97609e9da345464e5e",
 "favicon.png": "5dcef449791fa27946b3d35ad8803796",
 "icons/Icon-192.png": "ac9a721a12bbc803b44f645561ecb1e1",
 "icons/Icon-512.png": "96e752610906ba2a93c65f8abe1645f1",
-"index.html": "8c11d172989d0adf35bba8e94f42cd58",
-"/": "8c11d172989d0adf35bba8e94f42cd58",
-"main.dart.js": "ab784adcfe4a381e7439a87d679db612",
+"index.html": "64831a647e2c4ab117c6672bcaab67aa",
+"/": "64831a647e2c4ab117c6672bcaab67aa",
+"main.dart.js": "98b1c9e5536c18fafdfaebbb270f4f46",
 "manifest.json": "541fbf72ffdd9a9f8977760de2c04872",
 "version.json": "8b4ade056562c62e4e4d6a6941c72437"
 };
