@@ -1,26 +1,36 @@
-[{
-        "url": "https://imirror.news/",
-        "name": "အင်တာနက် သတင်းစာ"
+[
+    
+    {
+        "url": "https://burma.irrawaddy.com/",
+        "name": "ဧရာဝတီ သတင်းဌာန"
     },
     {
-        "url": "http://www.baydin.info/",
-        "name": "ဗေဒင်"
+        "url": "https://hellosayarwon.com/",
+        "name": "ဟယ်လို ဆရာဝန်"
     },
     {
-        "url": "https://nld-official.org/",
-        "name": "ပြည့်သူ့ပါတီ NLD"
+        "url": "https://www.popularmyanmar.com/",
+        "name": "ပေါ်ပြူလာ ဂျာနယ်"
+    },
+    {
+        "url": "https://pyimyanmarnews.com/",
+        "name": "ပြည်မြန်မာ သတင်းဂျာနယ်"
     },
     {
         "url": "https://burmese.dvb.no/",
         "name": "DVB မြန်မာပိုင်း"
     },
     {
-        "url": "https://burma.irrawaddy.com/",
-        "name": "ဧရာဝတီ သတင်းဌာန"
+        "url": "https://www.touchheartsmyanmar.com/",
+        "name": "နေ့စဉ်၊ အပတ်စဉ်၊ လစဉ် ဗေဒင်ဟောစာတမ်းများ"
     },
     {
-        "url": "https://pyimyanmarnews.com/",
-        "name": "ပြည်မြန်မာ သတင်းဂျာနယ်"
+        "url": "http://www.baydin.info/",
+        "name": "ဗေဒင်"
+    },
+    {
+        "url": "http://www.baydin.info/",
+        "name": "ဗေဒင်"
     },
     {
         "url": "https://www.crimenews-journal.com/",
@@ -35,16 +45,8 @@
         "name": "DVB နိုင်ငံတကာသတင်း"
     },
     {
-        "url": "https://www.popularmyanmar.com/",
-        "name": "ပေါ်ပြူလာ ဂျာနယ်"
-    },
-    {
         "url": "https://internetjournal.media/",
         "name": "အင်တာနက် ဂျာနယ်"
-    },
-    {
-        "url": "https://mmsoftware100.com/",
-        "name": "Motivation Mm"
     },
     {
         "url": "https://www.manawmayajournal.com/",
@@ -55,24 +57,16 @@
         "name": "iOS အသုံးပြုသူများအတွက်"
     },
     {
-        "url": "https://www.touchheartsmyanmar.com/",
-        "name": "နေ့စဉ်၊ အပတ်စဉ်၊ လစဉ် ဗေဒင်ဟောစာတမ်းများ"
-    },
-    {
         "url": "https://www.baydin.info/",
         "name": "ဗေဒင် မျိုးစုံ"
     },
     {
         "url": "https://kwee.co/",
-        "name": "ပိုပြီး စတိုင်ကျဖို့"
+        "name": "ကွီး Media"
     },
     {
         "url": "https://www.healthylifejournalmyanmar.com/",
         "name": "အိမ်ထောင်သည် ကျန်းမာရေး"
-    },
-    {
-        "url": "https://hellosayarwon.com/",
-        "name": "ဟယ်လို ဆရာဝန်"
     },
     {
         "url": "https://www.healthdigestmyanmar.com/",
@@ -111,10 +105,6 @@
         "name": "လူနေမှု ပုံစံ မျိုးစုံ"
     },
     {
-        "url": "https://myanmarnewsfeed.xyz/",
-        "name": "မြန်မာ သတင်းစုံ"
-    },
-    {
         "url": "https://www.travelkueen.com/",
         "name": "ခရီးသွား သတင်းများ"
     },
@@ -127,20 +117,8 @@
         "name": "မြန်မာ့ နှလုံးသား"
     },
     {
-        "url": "https://quickmedia.club/",
-        "name": "ပြည်တွင်း သတင်း"
-    },
-    {
-        "url": "https://newspapersheet.com/",
-        "name": "နေ့စဉ် သတင်းစာ"
-    },
-    {
         "url": "https://mmhealthguide.com/site/",
         "name": "ကျန်းမာရေး သတင်း"
-    },
-    {
-        "url": "https://lairamnews.com/",
-        "name": "ထူးဆန်းထွေလာ သတင်း"
     },
     {
         "url": "https://channelmyanmar.org/",
@@ -153,10 +131,6 @@
     {
         "url": "https://news-bar.com/",
         "name": "ကိုရီးယား နာမည်ကြီးများ"
-    },
-    {
-        "url": "https://celenow.com/",
-        "name": "Celebrity သတင်းများ"
     },
     {
         "url": "https://www.shwemom.com/",
@@ -183,11 +157,11 @@
         "name": "နိုင်ငံရေး သတင်းအမှားများ"
     },
     {
-        "url": "https://myansan.org/",
-        "name": "ဆယ့်ရှစ်နှစ် အထက် သတင်းများ"
-    },
-    {
         "url": "https://lupyonews.com/",
         "name": "အချစ်ရေး သတင်းများ"
+    },
+    {
+        "url": "https://imirror.news/",
+        "name": "iMirror News"
     }
 ]
